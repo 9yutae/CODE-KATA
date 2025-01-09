@@ -8,7 +8,8 @@ vector<string> solution(vector<string> strArr) {
         if(iter->find("ad") != string::npos) {
             strArr.erase(iter);
         }
-        else iter++;
+        else 
+            iter++;
     }
     return strArr;
 }
