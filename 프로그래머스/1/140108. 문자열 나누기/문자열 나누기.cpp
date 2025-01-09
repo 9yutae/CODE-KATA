@@ -12,15 +12,9 @@ int solution(string s) {
             break;
         }
         
-        for(int j=i+1;j<s.size();j++) {
-            if(j == s.size()-1) {
-                answer++;
-                i = j;
-                break;
-            }
-            
+        for(int j=i+1;j<s.size();j++) {            
             s[j] == s[i] ? same++ : diff++;
-            if(same == diff) {
+            if(same == diff || j == s.size()-1) {
                 answer++;
                 i = j;
                 break;
