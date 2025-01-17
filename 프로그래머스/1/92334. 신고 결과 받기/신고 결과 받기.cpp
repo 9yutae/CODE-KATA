@@ -4,8 +4,6 @@
 #include <map>
 #include <set>
 
-#include <iostream>
-
 using namespace std;
 
 vector<int> solution(vector<string> id_list, vector<string> report, int k) {    
