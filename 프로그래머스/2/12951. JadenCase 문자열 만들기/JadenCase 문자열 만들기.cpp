@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <cctype>
 
 using namespace std;
 
@@ -8,7 +9,6 @@ string solution(string s) {
     
     for(int i=0;i<s.size();i++) {
         if(s[i] == ' ') isNextSpace = true;
-        else if(isdigit(s[i])) isNextSpace = false;
         else if(isNextSpace && islower(s[i])) {
             s[i] -= 32;
             isNextSpace = false;
