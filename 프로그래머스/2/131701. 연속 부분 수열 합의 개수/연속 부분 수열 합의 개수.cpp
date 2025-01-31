@@ -2,8 +2,6 @@
 #include <vector>
 #include <set>
 
-#include <iostream>
-
 using namespace std;
 
 int solution(vector<int> elements) {
@@ -17,7 +15,7 @@ int solution(vector<int> elements) {
     for(const auto& w:elements) {
         sum.push_back(w + sum.back());
     }
-    
+ 
     for (int i = 0; i < elements.size(); i++)
     {
         for (int j = 0; j < elements.size(); j++)
