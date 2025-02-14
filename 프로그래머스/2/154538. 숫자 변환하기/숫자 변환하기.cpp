@@ -1,28 +1,32 @@
 #include <string>
 #include <vector>
 #include <queue>
+#include <unordered_set>
 
 using namespace std;
 
 int solution(int x, int y, int n) {
-    queue<pair<int,int>> que;
+    queue<pair<int, int>> que;
     que.push({x, 0});
     
-    bool visited[1000001] = { false, };
+    unordered_set<int> visited;
+    visited.insert(x);
     
-    while(!que.empty()) {
-        if(que.front().first == y) return que.front().second;
-        
+    while (!que.empty()) {
         int tmp = que.front().first;
         int cnt = que.front().second;
         que.pop();
         
-        if(visited[tmp]) continue;
-        visited[tmp] = true;
+        if (tmp == y) return cnt;
         
-        if(tmp + n <= y) que.push({tmp + n, cnt + 1});
-        if(tmp * 2 <= y) que.push({tmp * 2, cnt + 1});
-        if(tmp * 3 <= y) que.push({tmp * 3, cnt + 1});
+        vector<int> nextValues = {tmp + n, tmp * 2, tmp * 3};
+        
+        for (int next : nextValues) {
+            if (next <= y && visited.find(next) == visited.end()) {
+                visited.insert(next);
+                que.push({next, cnt + 1});
+            }
+        }
     }
     
     return -1;
