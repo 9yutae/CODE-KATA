@@ -1,8 +1,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-
-#include <iostream>
 using namespace std;
 
 bool compare(int lhs, int rhs) {
