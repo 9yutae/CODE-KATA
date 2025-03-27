@@ -58,10 +58,8 @@ int solution(vector<string> maps) {
     int toLever = bfs(maps, startX, startY, 'L');
     if (toLever == -1) return -1;
 
-    grid.clear();
-    isVisited.clear();
-    grid.resize(maps.size(), vector<int>(maps[0].size(), 0));
-    isVisited.resize(maps.size(), vector<bool>(maps[0].size(), false));
+    grid.assign(maps.size(), vector<int>(maps[0].size(), 0));
+    isVisited.assign(maps.size(), vector<bool>(maps[0].size(), false));
     int toExit = bfs(maps, leverX, leverY, 'E');
     if (toExit == -1) return -1;
 
