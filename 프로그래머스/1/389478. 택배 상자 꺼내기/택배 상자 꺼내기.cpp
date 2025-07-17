@@ -22,4 +22,15 @@ int solution(int n, int w, int num) {
     int rowIdx = (num - 1) / w;
     int colIdx = rowIdx % 2 == 0 ? (num-1) % w : w - (num-1) % w - 1;
     return packages[colIdx].size() - rowIdx;
+
+    // int answer = 0;
+    // for (const auto& vec : packages){
+    //     auto it = find(vec.begin(), vec.end(), num);
+
+    //     if (it != vec.end()){
+    //         answer = vec.size() - distance(vec.begin(), it);
+    //     }
+    // }
+
+    // return answer;
 }
