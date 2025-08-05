@@ -43,6 +43,10 @@ vector<int> solution(vector<string> info, vector<string> query) {
         insertAllCombinations(infoTokens);
     }
     
+    for (auto& [_, scores] : DB) {
+	    sort(scores.begin(), scores.end());
+	}
+    
     vector<int> responses;
     for (const string& request : query) {
         stringstream queryStream(request);
@@ -55,12 +59,9 @@ vector<int> solution(vector<string> info, vector<string> query) {
             else flag = stoi(token);
         }
         
-        int curr = 0;
-        for (const auto& w : DB[queryTokens]) {
-            if (w >= flag) curr++;
-        }
-        
-        responses.push_back(curr);
+        const vector<int>& scores = DB[queryTokens];
+        int count = scores.end() - lower_bound(scores.begin(), scores.end(), flag);
+        responses.push_back(count);
     }
     
     return responses;
